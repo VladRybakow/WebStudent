@@ -1,0 +1,34 @@
+﻿@page "/counter"
+@using WebStudent.Data
+
+<div>
+    <p><b>Имя:</b></p>
+    <p><input type="text" @bind-value="name" /></p>
+    <p><b>Фамилия</b></p>
+    <p><input type="text" @bind-value="surname" /></p>
+    <p><b>Группа:</b></p>
+    <p><input type="text" @bind-value="group" /></p>
+    <p><b>Факультет:</b></p>
+    <p><input type="text" @bind-value="faculty" /></p>
+</div>
+
+<button class="btn btn-primary" @onclick="Regis">Registration</button>
+
+@code {
+    private int currentCount = 0;
+
+    private string name;
+    private string surname;
+    private int group;
+    private string faculty;
+
+    private void Regis()
+    {
+        LogicGrooping.AddToList(name, surname, group, faculty);
+    }
+
+    private void IncrementCount()
+    {
+        currentCount++;
+    }
+}
